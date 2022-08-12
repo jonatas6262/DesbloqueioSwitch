@@ -149,7 +149,8 @@ Segue uma lista do que o pacote inclui, com os links para baixar tudo direto das
 
 4) MÓDULOS DE SISTEMA PARA O ATMOSPHÈRE - podem ser habilitados ou desabilitados pelo homebrew Hekate Toolbox ou pelo Tesla Menu (L + D-pad para Baixo + R3):
 
-- Emuiibo (https://github.com/XorTroll/emuiibo/releases): Módulo capaz de emular amiibos. Os amiibos já são inclusos no pacote, mas podem ser gerados no pelo Emutool, também incluso. Depois de habilitado o módulo, escolha o amiibo pelo Tesla Menu (L + D-pad para Baixo + R3).
+- Emuiibo (https://github.com/XorTroll/emuiibo/releases): Módulo capaz de emular amiibos. Os amiibos já são inclusos no pacote, mas podem ser gerados no pelo Emutool,
+também incluso. Depois de habilitado o módulo, escolha o amiibo pelo Tesla Menu (L + D-pad para Baixo + R3).
 
 - sys-ftpd-light (https://github.com/cathery/sys-ftpd-light/releases): Transforma o Switch num servidor de FTP, possibilitando a transferência de arquivos por rede local com o auxílio de uma ferramenta como o Filezilla.
 
