@@ -1,0 +1,445 @@
+﻿ ====================================================
+================== GNX v14.1.2-03 ==================
+=== Compatibilidade: firmware 14.1.2 ou inferior ===
+====================================================
+
+=============================
+=== Apoie Sem Gastar Nada ===
+=============================
+
+Não quero e não aceito doações diretas pelo trabalho com o GNX - prefiro que doações sejam feitas para quem realmente precisa, especialmente cachorrinhos carentes -, mas se você quiser apoiar sem gastar nada, pode utilizar os meus links nas seguintes plataformas:
+
+- crypto.com: https://crypto.com/app/bp7pw9cmx7 (tanto você como eu ganhamos US$25.00 em $CRO se você solicitar um cartão Ruby ou superior);
+
+- Binance: https://accounts.binance.com/en/register?ref=FJGSCX6Y (cadastrando-se com o meu link você ganha 10% de desconto sobre as fees de trade e me ajuda com uma comissão sobre elas);
+
+- Meliuz: https://www.meliuz.com.br/i/ref_b7bd49?ref_source=55 (você ganha R$5,00 de cashback ao realizar qualquer compra com o Meliuz, além dos cashbacks e cupons de desconto que eles já oferecem normalmente - excelente para qualquer tipo de compra online);
+
+- MercadoPago: http://mpago.li/2M7XV92 (Baixe o app do Mercado Pago por este link e aproveite um desconto de R$ 10 no seu primeiro pagamento);
+
+- PicPay: http://www.picpay.com/convite?@UAYM8N (Crie sua conta usando o meu código, UAYM8N, pra ganhar R$10 depois do primeiro pagamento usando um cartão de crédito);
+
+- Twitch: https://www.twitch.tv/pkmlab (É muito raro eu fazer lives, mas se você tiver uma sub gratuita da Amazon Prime dando moleza, eu aceito! Por favor, não pague pela sub, só use a sub gratuita da Prime e se não for utilizá-la para mais nada);
+
+- Epic Games: use a creator tag GOMANX ao comprar ou baixar um jogo gratuito na Epic Games (toda quinta-feira eles disponibilizam alguns!); 
+
+
+
+==============================
+=== Tutorial de Instalação ===
+==============================
+
+ANTES DE COMEÇAR, VOCÊ VAI PRECISAR DE: 
+
+- Um Nintendo Switch desbloqueável por software (verifique em https://ismyswitchpatched.com/) e com a bateria totalmente carregada;
+- Um jig RCM;
+- Um cartão micro SD (de preferência com capacidade de 64gb ou mais), preferencialmente formatado em FAT32 com o guiformat, incluso no GNX, na pasta “Softwares para uso no PC”;
+- Um PC rodando Windows + um cabo USB-C;
+- A última versão do pacote de arquivos GNX;
+- Certificar-se de DESATIVAR A SINCRONIZAÇÃO DE SAVES NA NUVEM (System Settings -> Data Management -> [seu usuário] -> Settings -> Automatic Save-Data Backup e Download OFF). Não fazer isso implica em uma mensagem de erro chata na EmuNAND que não tem como ser removida. Isso não é um problema se você acabou de formatar o console e/ou não tem conta Nintendo configurada com Nintendo Switch Online. 
+ 
+Existe a possibilidade de realizar esse procedimento utilizando um celular com Android + cabo OTG ou um dongle em vez de um computador rodando o TegraRcmGUI, mas essas possibilidades não serão abordadas pelo guia.
+	
+Agora você está pronto para começar o procedimento de desbloqueio. Ao final dele, seu Switch estará rodando o Atmosphère. Mãos à obra e ATENÇÃO AOS DETALHES!
+ 
+ 
+1. [ENTRAR EM MODO RCM] Certifique-se de que seu Switch está carregado. Desligue o console (segurando o botão Power até o menu Power Options aparecer e efetivamente desligando-o), insira o jig no trilho do joy-con direito e ligue-o enquanto segura o botão Volume+. A tela não vai acender, isso significa que deu certo e seu console está no modo RCM.
+
+2. [PREPARO O CARTÃO SD] Copie para a raíz de seuSD os arquivos contidos na pasta indicada no pacote GNX_v[X.Y.Z-N].zip. Copie a pasta TegraRcmGUI v2.6 Portable que está em “Softwares para uso no PC” para algum lugar no seu computador.
+ 
+3. Insira o cartão SD no Switch.
+
+4. Rode o programa TegraRcmGUI contido na pasta copiada no passo 2.
+
+5. Conecte o cabo USB-C do PC ao Switch.
+
+6. [PREPARO DO PC] No programa TegraRcmGUI, vá à aba Settings e clique em Install Driver (Isso só precisa ser feito nessa primeira vez - pode pular esse passo nas próximas vezes que for usar o TegraRcmGUI para ligar seu console).
+
+7. [SELEÇÃO DA PAYLOAD] Quando terminar de instalar, volte para a aba Payload e selecione payload.bin na janela Favorites.
+ 
+8. [INJEÇÃO DA PAYLOAD] Verifique se o ícone de Switch na parte de baixo do programa está verde, escrito RCM OK e clique no botão Inject Payload. Se a tela do seu console não acender, tente novamente usando a versão instalável do TegraRcmGUI, também inclusa no pacote.
+
+[BACKUP DA NAND - PASSOS 9 E 10 OPCIONAIS, MAS RECOMENDÁVEIS]
+9. [CRIAÇÃO DO BACKUP] Agora você está no Hekate, que é um bootloader customizado cheio de ferramentas extremamente úteis. Você pode navegar por ele utilizando a tela touch do Switch. Entre no menu Tools e depois selecione Backup eMMC. Faça o backup das partições BOOT0 & BOOT1 e  eMMC RAW GPP (esse processo demora um pouco para completar, cerca de vinte minutos se seu cartão SD for bom). Terminado o processo de backup, remova o cartão SD do Switch. Ele ficará aguardando a reinserção do SD, deixe-o assim.
+ 
+10. [ARMAZENAMENTO DO BACKUP DA NAND NO PC] Insira seu cartão SD no computador copie para ele a pasta backup que está na raíz do cartão. Ela contém o backup da sua NAND. Terminada a cópia para o PC, apague a pasta backup no cartão para liberar espaço. Reinsira o cartão SD no console, que recarregará o Hekate.
+
+[CRIAÇÃO DE UMA EMUNAND - PASSO 11 OPCIONAL, MAS RECOMENDÁVEL]
+11. [CRIAÇÃO UMA EMUNAND "SD FILES"] Vamos agora criar uma EmuNAND / emuMMC. Na tela inicial do Hekate, clique em emuMMC, depois Create emuMMC, SD File e aguarde o término do processo, que demorará cerca de 15 minutos. Criando a EmuNAND por esse método, ela ficará na pasta “emummc” na raíz do cartão. NUNCA apague essa pasta, ou você perderá sua EmuNAND, incluindo saves e jogos piratas instalados. Ao término do procedimento, pressione Close duas vezes e volte para a tela inicial do Hekate (Home).
+
+
+12.  [INICIALIZAÇÃO DO ATMOSPHÈRE] Na tela inicial do Hekate, selecione Launch e depois "Atmosphere" (a primeira opção). Se você criou sua EmuNAND seguindo o passo 11, essa opção iniciará o console na EmuNAND. Do contrário, se você não tiver uma EmuNAND criada, essa opção inicia na SysNAND. De qualquer forma, selecionando-a, você já estará com o  “Incognito” ativo, que é um recurso que oculta a prodinfo do seu console, efetivamente permitindo que você conecte-o à internet para uso de homebrew / download de jogos sem medo de ser banido. 
+
+Toda vez que seu console desligar, você precisará colocá-lo em RCM, injetar a payload do Hekate e reiniciar o Atmosphère (ou seja, repetir os passos 1, 4, 5, 6, 7, 8 e 12). 
+
+Caso você tenha criado uma EmuNAND (ou seja, realizado o passo opcional 11) e deseje bootar o console pela SysNAND para jogar seus jogos originais online, selecione a segunda opção no menu Launch, "AMS (Homebrew Only)".
+
+A terceira opção, Official Firmware, serve o mesmo propósito da segunda, mas desabilita todos os recursos adicionais do Atmosphère. Tanto a segunda quanto a terceira opções são seguras para uso online, contanto que não haja vestígios de pirataria na SysNAND. Se você estiver na segunda opção, não abra EM HIPÓTESE ALGUMA o Tinfoil, pois isso te fará ser banido.
+ 
+Enfim, quase pronto! Seu console está desbloqueado com o Atmosphère. 
+ 
+Agora vamos aprender a usar o seu desbloqueio. Para acessar o Homebrew Menu, abra o álbum.
+
+O app utilizado para instalar jogos é o Tinfoil. No GNX, ele já vem configurado com servidores contendo praticamente todo o catálogo de jogos, updates e DLCs do Switch, permitindo que eles sejam baixados diretamente pelo console. O Tinfoil é um homebrew um pouco diferente dos demais. Ele é um instalável. Para instalá-lo, abra o álbum e selecione o Tinfoil Installer. Depois disso, é só utilizá-lo a partir da tela inicial do seu console.
+ 
+Para baixar jogos, basta conectar seu console à internet, acessar o Tinfoil. 
+ 
+Dentro do app, existe uma aba New Games na qual você pode ver a lista completa dos jogos disponíveis para download. Basta selecionar o que você quiser instalar, optar entre instalá-lo no cartão SD ou na NAND e selecionar Install sem mexer em nenhuma das outras opções. 
+
+Pronto, agora você já está com seu console desbloqueado e pronto para instalar jogos. Boa diversão!
+
+
+
+================
+=== Conteúdo ===
+================
+
+Segue uma lista do que o pacote inclui, com os links para baixar tudo direto das respectivas fontes:
+
+
+1) BOOTLOADER:
+
+- Hekate (https://github.com/CTCaer/hekate/releases): Payload utilizada pelo GNX. Serve para "organizar" o desbloqueio e possui diversas funcionalidades úteis como formatação de SD, criação de EmuNAND, toggle de AutoRCM, etc.
+	
+
+2) CFW:
+
+- Atmosphère (https://github.com/Atmosphere-NX/Atmosphere/releases): A custom firmware em si, que possibilita o uso de todos os recursos inclusos no pacote.
+
+
+3) HOMEBREWS:
+
+- aio-switch-updater (https://github.com/HamletDuFromage/aio-switch-updater/releases): Software que atualiza diversos arquivos úteis para um switch desbloqueado. Por padrão, ele vem no pacote com vários recursos desativados, a fim de evitar que usuários mais leigos desconfigurem o GNX e acabem, entre outras coisas, banidos. Se voce não sabe o que está fazendo, use esse homebrew apenas para baixar cheats.
+
+- Battery_Desync_Fixer_NX (https://github.com/CTCaer/battery_desync_fix_nx/releases): Este homebrew serve para recalibrar a bateria do console, caso ela esteja descalibrada. Siga atentamente as instruções em https://github.com/CTCaer/battery_desync_fix_nx se for utilizá-lo.
+
+- CNX-updater (https://github.com/AMSNX/cnxpack-updater): Este homebrew, desenvolvido pelo Marcus Miranda e o Ricardo "CostelaBR", é capaz, entre outras coisas, de baixar traduções/mods e atualizar tanto os packs GNX como CNX. Muito obrigado pela contribuição com a cena!
+
+- Homebrew App Store (https://www.switchbru.com/appstore/): Uma "loja de homebrews" mantida pela comunidade. Por ela você pode baixar outros softwares que não são inclusos no pacote.
+
+- DBI (https://github.com/rashevskyv/dbi/blob/main/README_ENG.md): Ferramenta multiuso. Faz de tudo um pouco. Mais detalhes aqui, cortesia do Nintendo Unlock: https://www.youtube.com/watch?v=vH6kzvpZUJ4
+
+- EdiZon (https://github.com/WerWolv/EdiZon/releases): Ferramenta para uso de cheats. Funciona também pelo Tesla Menu (L + Baixo no Dpad + R3)
+
+- Hekate Toolbox (https://github.com/WerWolv/Hekate-Toolbox/releases): Ferramenta para habilitar / desabilitar módulos de sistema e integrar algumas funcionalidades do Hekate dentro do Horizon (sistema operacional do Switch).
+
+- ldnmitm_config (https://github.com/spacemeowx2/ldn_mitm/releases): Homebrew para configuração do módulo ldn_mitm.
+
+- Linkalho (https://github.com/rdmrocha/linkalho): Homebrew para vincular e desvincular contas Nintendo. O vínculo é falso e serve apenas para enganar jogos que têm esse requerimento.
+
+- Tinfoil (https://tinfoil.io/Download#download) com locations.conf do Luffshop (https://github.com/carcaschoi/tinfoil-json) e JITS Ez Shops (https://discord.gg/UkwVjft), que incluem, entre outros: StealthShop (https://discord.gg/EZMAupDvWE), NekoShop (https://discord.gg/pytKu48eMk),  Pengu's Shop (https://discord.gg/b773pXcfPF), TITS (https://discord.gg/eeGRy63U2F), QuotaShop (https://discord.gg/kjvT5ah), ReDUMP Shop (https://discord.gg/tuT59S2zcv) e Teknik.app (https://discord.gg/tuT59S2zcv). Considere realizar uma doação aos grupos supracitados - são eles que dumpam jogos e mantém os shops, e doando você recebe acesso a shops privados exclusivos para doadores. Mais informações nos respectivos Discords.
+  Instalador de jogos mais popular da cena do Switch, com a capacidade de conectar-se a servidores e baixar jogos diretamente pelo console, além de ter uma grande gama de outras funcionalidades.
+
+- Lockpick_RCM (https://github.com/shchmue/Lockpick_RCM/releases): Payload para dumpar as keys do seu console (diversos softwares precisam das keys para funcionar, com oo NxNandManager).
+
+- Homebrew Menu (https://github.com/switchbrew/nx-hbmenu/releases): O menu que substitui o álbum e / ou jogos (se você os abrir segurando R) e possibilita o uso de homebrews. 
+
+- NX-Activity-Log (https://github.com/tallbl0nde/NX-Activity-Log): Homebrew que monitora de maneira detalhada o tempo de uso de cada jogo.
+
+- NXThemesInstaller (https://github.com/exelix11/SwitchThemeInjector/releases): Instalador de temas. Sempre utilize essa ferramenta para remover seus temas ANTES de atualizar a firmware do console.
+
+- prodinfo_gen (https://github.com/CaramelDunes/prodinfo_gen/releases/): Payload capaz de gerar uma prodinfo falsa, útil para salvar consoles com a prodinfo brickada. A prodinfo gerada pelo console NÃO serve para jogar online, agindo apenas como um "incognito" mais sofisticado. O usuário comum não precisa mexer com isso. 
+
+- Reset Parental Controls (https://github.com/ITotalJustice/Reset-Parental-Controls-NX/releases): Software capaz de remover os controles parentais mesmo sem a senha.
+
+- TegraExplorer (https://github.com/suchmememanyskill/TegraExplorer/releases): Payload com uma série de funcionalidades. Está no pacote primariamente para possibilitar o uso do script...
+-- SyncFix.te, localizado na pasta TegraExplorer. Ele serve para sincronizar os controles e conexões da SysNAND para a EmuNAND, evitando assim a necessidade de ressincronizar os controles cada vez que alternar entre as NANDs. 
+
+
+
+4) MÓDULOS DE SISTEMA PARA O ATMOSPHÈRE - podem ser habilitados ou desabilitados pelo homebrew Hekate Toolbox ou pelo Tesla Menu (L + D-pad para Baixo + R3):
+
+- Emuiibo (https://github.com/XorTroll/emuiibo/releases): Módulo capaz de emular amiibos. Os amiibos já são inclusos no pacote, mas podem ser gerados no pelo Emutool, também incluso. Depois de habilitado o módulo, escolha o amiibo pelo Tesla Menu (L + D-pad para Baixo + R3).
+
+- sys-ftpd-light (https://github.com/cathery/sys-ftpd-light/releases): Transforma o Switch num servidor de FTP, possibilitando a transferência de arquivos por rede local com o auxílio de uma ferramenta como o Filezilla.
+
+- sys-clk (https://github.com/retronx-team/sys-clk/releases): Serve para realizar overclock no console e pode ser configurado pelo Tesla Menu (L + D-pad para Baixo + R3) graças ao...
+-- sys-clk-Overlay (https://github.com/Sun-Research-University/sys-clk-Overlay/releases)
+
+- ldn_mitm  (https://github.com/spacemeowx2/ldn_mitm/releases): Transforma a funcionalidade de local multiplayer em Lan, possibilitando assim o uso do Lan Play em jogos que não têm a funcionalidade de Lan nativamente.
+
+- Mission Control (https://github.com/ndeadly/MissionControl/releases): Possibilita o uso de controles bluetooth de outras plataformas no Switch. Para usar, habilite o módulo, reinicie o console e sincronize o controle pelo menu do Switch, como faria com um controle da Nintendo. Para mais detalhes de como sincronizar cada controle, visite o Github.
+
+- sys-con (https://github.com/cathery/sys-con/releases): Possibilita o uso de controles de outras plataformas no Switch contanto que estejam conectados por cabo. Apesar dessa desvantagem em relação ao Mission Control, possui compatibilidade com mais controles.
+
+- sys-screenuploader (https://github.com/bakatrouble/sys-screenuploader/releases): Faz upload de screenshots e capturas de vídeo para o Discord ou Telegram. Por padrão, vem configurado para subir as capturas para o #sys-screenuploader do servidor de Discord do GNX (http://tiny.cc/DiscordGNX). Isso pode ser modificado em https://screenuploader.bakatrouble.me/ .
+
+- SysDVR (https://github.com/exelix11/SysDVR/releases): Realiza streaming de áudio e vídeo do console para um PC, funcionando tanto por rede local como por cabo USB. Para maiores detalhes de como usar, visite o wiki do projeto (https://github.com/exelix11/SysDVR/wiki).
+
+- Sys-Botbase (https://github.com/olliz0r/sys-botbase/releases): Módulo que possibilita a programação de bots e edição de ram em tempo real por rede. Trabalha em conjunto com o PKHeX, SysBot.Net, NHSE, entre outros projetos.
+
+- Tesla Menu (https://github.com/WerWolv/Tesla-Menu/releases): Menu que pode ser aberto a qualquer momento com a combinação de botões L + D-pad para Baixo + R3. Serve para configurar módulos, exibir informações e várias outras coisas.
+
+- nx-ovlloader (https://github.com/WerWolv/nx-ovlloader/releases): Componente necessário para o funcionamento do Tesla Menu.
+
+- ovlSysmodules (https://github.com/WerWolv/ovl-sysmodules/releases): Componente do Tesla Menu que exibe os toggles de módulo de sistema.
+
+- Status Monitor Overlay (https://github.com/masagrator/Status-Monitor-Overlay/releases): Componente do Tesla Menu que exibe informações em tempo real como temperatura, porcentagem de uso dos recursos do sistema, etc.
+
+- SaltyNX (https://github.com/masagrator/SaltyNX/releases): Framework para possibiltiar alguns truques de performance como o...
+-- ReverseNX-RT (https://github.com/masagrator/ReverseNX-RT/releases), que "engana" o console, forçando-o a pensar que está dockado no modo portátil e vice-versa. 
+
+- sys-tune (https://github.com/HookedBehemoth/sys-tune/releases): Player de música em plano de fundo, acessível pelo Tesla Menu.
+
+
+5) SOFTWARES PARA USO NO PC:
+
+- TegraRcmGUI Portable e Installer (https://github.com/eliboa/TegraRcmGUI/releases): Injetor de payload.
+
+- GUIformat (http://www.ridgecrop.demon.co.uk/index.htm?guiformat.htm): Ferramenta para formatar o cartão SD em Fat32 (recomendado). Não funciona se alguma janela do Windows Explorer estiver aberta.
+
+- PKHeX + Plugins (https://github.com/architdate/PKHeX-Plugins/releases/): Melhor editor de saves para os jogos mainline de Pokémon. Rode o almsetup_stable.exe para baixar a última versão do PKHeX e do plugin Auto Legality Mod.
+
+
+
+
+
+
+
+=================
+=== Changelog ===
+=================
+
+[v14.1.2-03] [2022.07.01]
+
+* [PT-BR] Hekate atualizado para a versão 5.8.0.
+* [EN-US] Hekate updated to version 5.8.0
+
+
+PROBLEMAS CONHECIDOS / KNOWN ISSUES:
+
+* [PT-BR] Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+* [EN-US] Sys-clk crashes when activated through Hekate Toolbox. To prevent that from happening, please activate it through Tesla Menu. If you do activate it through Hekate Toolbox and it crashes, just restart the console and the module will be active and working nonetheless.
+
+
+
+
+
+
+
+[v14.1.2-02] [2022.06.28]
+
+* [PT-BR] Switch-AIO-Updater atualizado.
+* [EN-US] Switch-AIO-Updater updated.
+
++ [PT-BR] Battery_Desync_Fixer_NX adicionado ao pacote. Visite https://github.com/CTCaer/battery_desync_fix_nx e leia com atenção as instruções de como utilizar este app caso sua bateria esteja descalibrada.
++ [EN-US] Battery_Desync_Fixer_NX added to the package. Visit https://github.com/CTCaer/battery_desync_fix_nx for usage instructions if you have battery desynchronization issues.
+
+* [PT-BR] Lista de shops do Tinfoil atualizada.
+* [EN-US] Tinfoil shop list updated.
+
+PROBLEMAS CONHECIDOS / KNOWN ISSUES:
+
+* [PT-BR] Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+* [EN-US] Sys-clk crashes when activated through Hekate Toolbox. To prevent that from happening, please activate it through Tesla Menu. If you do activate it through Hekate Toolbox and it crashes, just restart the console and the module will be active and working nonetheless.
+
+
+
+
+
+[v14.1.2-01] [2022.06.13]
+
++ [PT-BR] Alguns shops adicionados ao locations.conf do Tinfoil.
++ [EN-US] A couple new shops were added to Tinfoil's locations.conf.
+
+
+PROBLEMAS CONHECIDOS / KNOWN ISSUES:
+
+* [PT-BR] Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+* [EN-US] Sys-clk crashes when activated through Hekate Toolbox. To prevent that from happening, please activate it through Tesla Menu. If you do activate it through Hekate Toolbox and it crashes, just restart the console and the module will be active and working nonetheless.
+
+
+
+
+
+
+
+
+[v14.1.1-04] [2022.04.29]
+
+- [PT-BR] Atmosphère atualizado para a versão 1.3.2, assim como as devidas SigPatches;
+- [EN-US] Atmosphère updated to version 1.3.2, along with the respective SigPatches;
+
+
+
+PROBLEMAS CONHECIDOS / KNOWN ISSUES:
+
+- [PT-BR] Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+- [EN-US] Sys-clk crashes when activated through Hekate Toolbox. To prevent that from happening, please activate it through Tesla Menu. If you do activate it through Hekate Toolbox and it crashes, just restart the console and the module will be active and working nonetheless.
+
+- [PT-BR] As lojas do Tinfoil não estão funcionando como deveriam. Isso não tem nada a ver com o pacote GNX ou com o aplicativo Tinfoil em si, e sim com a política do Google Drive que mudou (onde são hospedadas a maioria das lojas públicas). Não há previsão de quando ou se a situação será normalizada (O Quota Shop, por exemplo, foi tirado do ar definitivamente). Por ora, utilize outras alternativas para instalar seus jogos (ou jogue esse monte de jogos que eu sei que você tem instalados aí!).
+- [EN-US] The public Tinfoil shops aren't working properly at the moment. That has nothing to do with Tinfoil itself or the GNX package. The issue at hand is related to the recent Google Drive policy changes, where most of the public shops are hosted. As such, it's not known when or whether the shops will be fixed (Quota Shop, for example, has come to an end). For time being, please use another alternative to install games (or play some of the ones you already have installed, I know you have plenty of those!)
+
+
+
+
+
+
+[v14.1.1-03] [2022.04.26]
+
+- Pequenas modificações realizadas na configuração do Switch-AIO-Updater. Agora é possível atualizar o GNX por ele!
+
+
+PROBLEMAS CONHECIDOS:
+
+- Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+
+
+
+
+
+
+[VERSÃO 14.1.1-02] [2022.04.23]
+
+- CNXpack-updater atualizado. Agora o app se auto-atualiza!
+
+
+PROBLEMAS CONHECIDOS:
+
+- Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+
+
+
+
+[VERSÃO 14.1.1-01] [2022.04.19]
+
+- Adicionado ao pacote o CNX-Updater, desenvolvido pelo Marcus Miranda e o Ricardo "CostelaBR". Este app é capaz, entre outras coisas, de baixar traduções/mods e atualizar tanto os packs GNX como CNX. Muito obrigado pela contribuição!
+
+- Ademais, o update 14.1.1 aparentemente não quebrou nada em relação à versão anterior e é seguro atualizar.
+
+
+PROBLEMAS CONHECIDOS:
+
+- Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+
+
+
+[VERSÃO 14.1.0-02] [2022.04.05]
+
+- Mission Control atualizado para suportar a versão 14.1.0.
+
+PROBLEMAS CONHECIDOS:
+
+- Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+
+
+
+[VERSÃO 14.1.0-01] [2022.04.05]
+
+- Atmosphère atualizado para a versão 1.3.1, com suporte à firmware 14.1.0;
+
+- SigPatches devidamente atualizadas;
+
+- ldn_mitm atualizado para uma build experimental com suporte à firmware 14.1.0 (https://github.com/dogty/ldn_mitm/actions/runs/2093295957);
+
+
+PROBLEMAS CONHECIDOS:
+
+- Sys-clk crasha se ativado pelo Hekate Toolbox. Para evitar isso, ative-o pelo Tesla Menu. Se você ativar pelo Hekate Toolbox e e crashar, apenas reinicie o console e ele funcionará normalmente.
+
+- Mission Control precisa de update para funcionar na 14.1.0;
+
+
+
+
+[VERSÃO 14.0.0-04] [2022.04.04]
+
+- TegraExplorer atualizado para suprotar a FW 14.0.0;
+
+- Lockpick_RCM atualizado novamente;
+
+- Mission Control atualizado para uma build experimental com suporte à 14.0.0;
+
+- ldm_mitm atualizado para um fork com suporte à 14.0.0
+
+- Vídeo da brincadeira de primeiro de abril removido do pacote.
+
+
+
+[VERSÃO 14.0.0-03] [2022.04.01]
+
+Graças a um exploit recentemente descoberto, tornou-se finalmente possível acessar o Homebrew Menu e bootar o Atmosphère em QUALQUER CONSOLE, sem a necessidade de modchip ou sequer de uso jig / injeção de payload. 
+
+Realizar o desbloqueio agora ficou tão simples quanto copiar o GNX para o seu cartão, acessar o álbum e escolher o ícone do Homebrew Menu.
+
+Além disso:
+
+- Sys-Botbase atualizado para funcionar na versão 14.0.0.
+
+- Sys-clk atualizado para corrigir um crash que ocorria na 14.0.0.
+
+PROBLEMAS CONHECIDOS:
+
+- Mission Control continua precisando ser atualizado.
+
+
+
+[VERSÃO 14.0.0-02] [2022.03.26]
+
+- NXThemeInstaller atualizado para suportar a versão 14.0.0.
+
+PROBLEMAS CONHECIDOS:
+
+- Mission Control precisa ser atualizado.
+
+
+
+[VERSÃO 14.0.0-01] [2022.03.23]
+
+- Atmosphère atualizado para a versão 1.3.0 (pre-release), com suporte para a versão 14.0.0, assim como as devidas sigpatches;
+- Hekate atualizado para a versão 5.7.2, com suporte para a versão 14.0.0;
+- Lockpick_RCM atualizado com suporte para a versão 14.0.0.
+
+Estou sem tempo para fazer testes agora. Sei que muita gente atualizou e está precisando desse release, então vou publicá-lo logo e listar os "problemas conhecidos" depois.
+
+
+
+[VERSÃO 13.2.1-01] [2022.01.20]
+
+- Atmosphère atualizado para a versão 1.2.6;
+- Sigpatches devidamente atualizadas;
+- Hekate atualizado para a versão 5.7.0;
+- Mission Control atualizado.
+
+
+[VERSÃO 13.2.0-05] [2021.12.15]
+
+- switch-cheats-updater substituído pelo aio-switch-updater.
+
+
+
+Versão 13.2.0-04 [2021.12.13]
+
+- prodinfo_gen atualizado.
+
+
+
+Versão 13.2.0-03 [2021.12.04]
+
+- ldn_mitm atualizado.
+
+
+
+Versão 13.2.0-02 [2021.12.01]
+
+- Mission Control atualizado.
+
+
+Versão 13.2.0-01 [2021.11.30]
+
+- Atmosphère atualizado para a versão 1.2.5 com suporte a 13.2.0, bem como as sigpatches;
+
+- MUITAS coisas redundantes removidas do pacote. A ideia é deixar apenas as ferramentas importantes / essenciais. Não vou listá-las uma a uma, mas se algo que você usava saiu do pacote, possivelmente ainda existe uma alternativa nele que faz a mesma coisa. Checkpoint -> JKSV, Nut -> DBI e assim por diante. Lembrando que tudo pode ser baixado pelo Homebrew App Store.
+
+
+
+
+Versão 13.1.0-12 [2021.11.27]
+
+- Sys-BotBase atualizado para a versão 2.0
+
+
+
+Versão 13.1.0-10 [2021.11.19]
+
+- Mission Control atualizado para a bui
